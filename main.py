@@ -96,7 +96,7 @@ if __name__ == '__main__':
         # TEST model
         test_bar = tqdm(test_data_loader, desc='Test model and save generated audios')
         for test_file_names, test_noisy in test_bar:
-            z = nn.init.normal(torch.Tensor(test_noisy.size(0), 1024, 8))
+            z = nn.init.normal_(torch.Tensor(test_noisy.size(0), 1024, 8))
             if torch.cuda.is_available():
                 test_noisy, z = test_noisy.cuda(), z.cuda()
             test_noisy, z = Variable(test_noisy), Variable(z)

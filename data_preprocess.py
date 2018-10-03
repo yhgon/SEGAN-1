@@ -4,8 +4,8 @@ import librosa
 import numpy as np
 from tqdm import tqdm
 
-clean_train_folder = 'data/clean_trainset_56spk_wav'
-noisy_train_folder = 'data/noisy_trainset_56spk_wav'
+clean_train_folder = 'data/clean_trainset_wav'
+noisy_train_folder = 'data/noisy_trainset_wav'
 clean_test_folder = 'data/clean_testset_wav'
 noisy_test_folder = 'data/noisy_testset_wav'
 serialized_train_folder = 'data/serialized_train_data'

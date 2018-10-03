@@ -50,7 +50,7 @@ if __name__ == '__main__':
         for train_batch, train_clean, train_noisy in train_bar:
 
             # latent vector - normal distribution
-            z = nn.init.normal(torch.Tensor(train_batch.size(0), 1024, 8))
+            z = nn.init.normal_(torch.Tensor(train_batch.size(0), 1024, 8))
             if torch.cuda.is_available():
                 train_batch, train_clean, train_noisy = train_batch.cuda(), train_clean.cuda(), train_noisy.cuda()
                 z = z.cuda()

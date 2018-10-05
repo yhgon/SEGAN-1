@@ -76,3 +76,9 @@ class AudioDataset(data.Dataset):
 
     def __len__(self):
         return len(self.file_names)
+    
+def float_to_int16(y):
+  """Convert floating-point numpy array of generated speech to int16 to fit in 16-bit Signed Integer PCM """
+  if not issubclass(y.dtype.type, np.floating):
+    raise ValueError('input samples not floating-point')
+  return (y * np.iinfo(np.int16).max).astype(np.int16)

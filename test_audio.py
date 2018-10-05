@@ -29,7 +29,7 @@ if __name__ == '__main__':
     noisy_slices = slice_signal(FILE_NAME, window_size, 1, sample_rate)
     enhanced_speech = []
     for noisy_slice in tqdm(noisy_slices, desc='Generate enhanced audio'):
-        z = nn.init.normal(torch.Tensor(1, 1024, 8))
+        z = nn.init.normal_(torch.Tensor(1, 1024, 8))
         noisy_slice = torch.from_numpy(emphasis(noisy_slice[np.newaxis, np.newaxis, :])).type(torch.FloatTensor)
         if torch.cuda.is_available():
             noisy_slice, z = noisy_slice.cuda(), z.cuda()

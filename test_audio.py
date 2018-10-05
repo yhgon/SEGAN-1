@@ -40,7 +40,7 @@ if __name__ == '__main__':
         enhanced_speech.append(generated_speech)
 
     enhanced_speech = np.array(enhanced_speech).reshape(1, -1)
-    16bit_PCM_data = float_to_int16(enhanced_speech.T)
+    int16_PCM_data = float_to_int16(enhanced_speech.T)
     file_name = os.path.join(os.path.dirname(FILE_NAME),
                              'enhanced_{}.wav'.format(os.path.basename(FILE_NAME).split('.')[0]))
-    wavfile.write(file_name, sample_rate, 16bit_PCM_data)
+    wavfile.write(file_name, sample_rate, int16_PCM_data)
